@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+
+    <style>
+
+      @import url('https://fonts.googleapis.com/css?family=Arvo|Oswald');
+    @import url('https://fonts.googleapis.com/css2?family=Rajdhani&family=Righteous&display=swap');
+      body {
+    background-image: url(sinnoh.png);
+    background-color: #cccccc;
+    }
+
+    #main {
+    width: 80%;
+    max-width: 700px;
+    border: 1px gray solid;
+    margin: auto;
+    padding: 10px;
+    background-color: #f0edf5;
+    border-radius: 10px;
+    }
+
+    #header {
+    margin-top: 0;
+    border: 2px solid black;
+    padding: 30px;
+    height: 280px;
+    width: auto;
+    text-align: center;
+    font-size: 40px;
+    background-image: url(piplup.jpg);
+    color: black;
+    }
+
+    h1{
+      font-family: Righteous;
+    }
+
+    h4{
+      font-family: Rajdhani;
+      font-style: bold;
+    }
+
+    label{
+      font-family: Rajdhani;
+    }
+
+    label {
+      display: block;
+    }
+
+    input {
+      width: 30px;
+      margin-left: 20px;
+    }
+
+    button {
+      width: 100px;
+      margin-top: 20px;
+    }
+
+    p {
+      font-family: Rajdhani;
+      font-style: bold;
+    }
+
+    .block{
+      border: 1px solid black;
+    width: 33%;
+    height: 300px;
+    padding-top: 20px;
+    margin-top: 20px;
+    background: #d7e3fc;
+    }
+
+    .answer2{
+      width: auto;
+      height: auto;
+   }
+
+    label {
+    display: block;
+    background: #b6ccfe;
+    color: white;
+    margin-bottom: 3px;
+    padding-right: 1px;
+    padding-left: 1px;
+    font-family: Rajdhani;
+  }
+
+  label:hover{
+    background: white;
+    color: black;
+    font-family: Rajdhani;
+  }
+
+  input{
+    margin-left: 1px;
+  }
+
+  button:hover{
+    background: #b6ccfe;
+    color: white;
+  }
+    </style>
+
+
+    <title>Welcome to the Sinnoh Region!</title>
+  </head>
+  <body>
+  <form id="myform">
+  <div id="main">
+  <div id="header">
+    <h1>Choose Your Starter Pokémon</h1>
+  </div>
+<div class = "container">
+  <div class = "row">
+    <div class = "col-md-6 block">
+  <h4>Which is best describes you?</h4>
+<label><input type="radio" name="describe" id="fire" value="2" />Passionate</label>
+<label><input type="radio" name="describe" id="water" value="1" />Sensitive</label>
+<label><input type="radio" name="describe" id="grass" value="3" />Ambitious</label>
+    </div>
+    <div class = "col-md-6 block">
+<h4>What color is your favorite?</h4>
+<label><input type="radio" name="color" id="cool" value="1" />Cool, like blues and purples.</label>
+<label><input type="radio" name="color" id="warm" value="2" />Warm, something like reds and oranges. </label>
+<label><input type="radio"  name="color" id="earth" value="3" />Earthy, anything green and brown</label>
+  </div>
+  <div class = "col-md-6 block">
+<h4>What area would you explore first?</h4>
+<label><input type="radio" name="area" id="mountain" value="3" />Stark Mountain</label>
+<label><input type="radio" name="area" id="forest" value="1" />Eterna Forest</label>
+<label><input type="radio" name="area" id="sea" value="2" />The Resort Area</label>
+ </div>
+ <div class = "col-md-6 block">
+<h4>Other than fire, grass, or water, what other type would you choose?</h4>
+<label><input type="radio" name="type" id="metal" value="2" />Steel</label>
+<label><input type="radio" name="type" id="rock" value="1" />Ground</label>
+<label><input type="radio" name="type" id="chop" value="3" />Fighting</label>
+  </div>
+  <div class = "col-md-6 block">
+<h4>A wild Pokémon appears! What do you do?</h4>
+<label><input type="radio" name="appears" id="attack" value="3" />Run at it and attack! I'm not holding anything back!</label>
+<label><input type="radio" name="appears" id="strategy" value="1" />Use a variety of status and special moves. Strategy is key!</label>
+<label><input type="radio" name="appears" id="run" value="2" />I don't wanna get hurt, so I'm gonna run away!</label>
+  </div>
+  <div class = "col-md-6 block">
+<button type="submit" value="Submit">Submit</button>
+
+
+<p id="answer"></p>
+<p id="answer2"></p>
+  </div>
+  </div>
+</div>
+</form>
+</div>
+
+      <!-- Optional JavaScript; choose one of the two! -->
+
+      <script>
+     document.getElementById("myform").onsubmit=function() {
+
+
+     describe = parseInt(document.querySelector('input[name = "describe"]:checked').value);
+
+    color = parseInt(document.querySelector('input[name = "color"]:checked').value);
+
+    area = parseInt(document.querySelector('input[name = "area"]:checked').value);
+
+    type = parseInt(document.querySelector('input[name = "type"]:checked').value);
+
+    appears = parseInt(document.querySelector('input[name = "appears"]:checked').value);
+
+     total= describe + color + area + type + appears;
+
+
+     document.getElementById("answer").innerHTML = total;
+
+     if(total >=5 && total <8) {
+document.getElementById("answer2").innerHTML = "Your starter Pokémon is Piplup!<br /><img src = 'piplup.gif' width = '150'>";
+}
+
+   if(total >=9 && total <11) {
+document.getElementById("answer2").innerHTML = "Your starter Pokémon is Chimchar!<br /><img src = 'chimchar.gif' width = '150'>";
+}
+
+  if(total >12) {
+document.getElementById("answer2").innerHTML = "Your starter Pokémon is Turtwig!<br /><img src = 'turtwig.gif' width = '150'>";
+}
+
+     return false; // required to not refresh the page; just leave this here
+     }// end the submit function
+</script>
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-W8fXfP3gkOKtndU4JGtKDvXbO53Wy8SZCQHczT5FMiiqmQfUpWbYdTil/SxwZgAN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.min.js" integrity="sha384-skAcpIdS7UcVUC05LJ9Dxay8AXcDYfBJqt1CJ85S/CFujBsIzCIv+l9liuYLaMQ/" crossorigin="anonymous"></script>
+  </body>
+</html>
